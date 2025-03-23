@@ -14,14 +14,14 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(fondo);
   
-  // Crear un contenedor para los botones y ubicarlo en la parte inferior, centrado.
+  // Crear un contenedor para los botones, ubicado en la parte superior con mayor margen izquierdo.
   buttonContainer = createDiv('');
   buttonContainer.style('position', 'absolute');
-  buttonContainer.style('bottom', '10px');
-  buttonContainer.style('left', '50%');
-  buttonContainer.style('transform', 'translateX(-50%)');
+  buttonContainer.style('top', '50px');       // Mayor margen superior
+  buttonContainer.style('left', '50px');      // Mayor margen izquierdo
   buttonContainer.style('display', 'flex');
-  buttonContainer.style('gap', '10px'); // Espacio entre botones
+  buttonContainer.style('flex-direction', 'column'); // Uno abajo del otro
+  buttonContainer.style('gap', '10px');              // Espacio entre botones
   
   // Botón para iniciar los círculos
   btnIniciarCirculos = createButton('Iniciar Círculos');
@@ -75,7 +75,6 @@ function drawCirculos() {
 
 function drawLineas() {
   push();
-  blendMode(HARD_LIGHT);
   stroke(tertiaryColor);
   strokeWeight(2);
   line(random(width / 8), 0, random(width / 4), height);
@@ -105,7 +104,7 @@ function guardarCanvas() {
 }
 
 function styleButton(btn, bgColor) {
-  // Aplica estilos usando tu paleta, fuente grande, bordes redondeados y mayor padding.
+  // Aplica estilos: fondo según la paleta, fuente más grande, bordes redondeados y mayor padding.
   btn.style('background-color', bgColor);
   btn.style('color', fondo);
   btn.style('font-size', '18px');
